@@ -1,0 +1,16 @@
+{
+ "box": [
+  0,
+  0,
+  1499,
+  759
+ ],
+ "t0": "2024-10-10 20:30",
+ "interval": "15m",
+ "p_top": 63544.39512,
+ "p_bottom": 59467.11742,
+ "log_scale": false,
+ "variant": "shape",
+ "topk": "12",
+ "contemp": false
+}

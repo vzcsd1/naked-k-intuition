@@ -1,0 +1,21 @@
+{
+ "n_windows": 1165566,
+ "old_missing": 0,
+ "old_same_shape": 1.0,
+ "old_same_raw": 1.0,
+ "old_field_maxdiff": 0.0,
+ "old_fwd_mismatch": 0,
+ "old_nan_shift": 0,
+ "windows_before": 1157502,
+ "windows_after": 1165566,
+ "coins_changed": 23,
+ "coins_shrunk": 0,
+ "liq30_maxdiff": 0.0,
+ "liq60_maxdiff": 0.0,
+ "liq_nan_new": 0,
+ "index_tmax": 1790034300000,
+ "index_tmin": 1503702900000,
+ "raw_1m_last": 1790035140000,
+ "coins": 122,
+ "all_ok": true
+}

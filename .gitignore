@@ -1,0 +1,21 @@
+# ===== 不上传到 GitHub 的内容 =====
+
+# 数据与索引（41GB，GitHub 单文件上限 100MB，无法容纳；可由 scripts/fetch_data.py 与 scripts/refresh.py 重建）
+data/
+
+# 本地工作目录（会话日志，非项目内容）
+.workbuddy/
+
+# Python 缓存
+__pycache__/
+*.pyc
+
+# 大体积生成文件（体积原因，本地保留）
+results/*.parquet
+results/blind_test.html
+results/m1_blindtest/blindtest_20261004.html
+
+# 调试/中间产物
+results/_*
+scripts/_shot_bytes.png
+*.log

@@ -1,0 +1,1956 @@
+{
+ "seed": 42,
+ "generated": "2026-10-04 10:02",
+ "groups": [
+  {
+   "group": 1,
+   "query_row": 4951422,
+   "query_sym": "MKRUSDT",
+   "query_start": 1725133500000,
+   "order": [
+    "C3_context_random",
+    "C4_random",
+    "C1_shape_detrend",
+    "C2_shape_raw"
+   ],
+   "degraded_c3": false,
+   "candidates": {
+    "C1_shape_detrend": {
+     "row": 4175201,
+     "sym": "KAVAUSDT",
+     "start": 1725134400000,
+     "letter": "C"
+    },
+    "C2_shape_raw": {
+     "row": 7344054,
+     "sym": "TUSDUSDT",
+     "start": 1718764200000,
+     "letter": "D"
+    },
+    "C3_context_random": {
+     "row": 4703957,
+     "sym": "LUNAUSDT",
+     "start": 1723299300000,
+     "letter": "A"
+    },
+    "C4_random": {
+     "row": 5837737,
+     "sym": "PSGUSDT",
+     "start": 1754784000000,
+     "letter": "B"
+    }
+   }
+  },
+  {
+   "group": 2,
+   "query_row": 6686891,
+   "query_sym": "STXUSDT",
+   "query_start": 1598589900000,
+   "order": [
+    "C2_shape_raw",
+    "C1_shape_detrend",
+    "C4_random",
+    "C3_context_random"
+   ],
+   "degraded_c3": false,
+   "candidates": {
+    "C1_shape_detrend": {
+     "row": 226773,
+     "sym": "AKROUSDT",
+     "start": 1692957600000,
+     "letter": "B"
+    },
+    "C2_shape_raw": {
+     "row": 7530767,
+     "sym": "USDCUSDT",
+     "start": 1636362900000,
+     "letter": "A"
+    },
+    "C3_context_random": {
+     "row": 2127448,
+     "sym": "DASHUSDT",
+     "start": 1597383900000,
+     "letter": "D"
+    },
+    "C4_random": {
+     "row": 1744984,
+     "sym": "CKBUSDT",
+     "start": 1638113400000,
+     "letter": "C"
+    }
+   }
+  },
+  {
+   "group": 3,
+   "query_row": 4812003,
+   "query_sym": "MATICUSDT",
+   "query_start": 1617365700000,
+   "order": [
+    "C3_context_random",
+    "C4_random",
+    "C2_shape_raw",
+    "C1_shape_detrend"
+   ],
+   "degraded_c3": false,
+   "candidates": {
+    "C1_shape_detrend": {
+     "row": 3989799,
+     "sym": "IOTXUSDT",
+     "start": 1614573900000,
+     "letter": "D"
+    },
+    "C2_shape_raw": {
+     "row": 1691110,
+     "sym": "CHZUSDT",
+     "start": 1571693400000,
+     "letter": "C"
+    },
+    "C3_context_random": {
+     "row": 3529323,
+     "sym": "HARDUSDT",
+     "start": 1618083000000,
+     "letter": "A"
+    },
+    "C4_random": {
+     "row": 2548831,
+     "sym": "DOGEUSDT",
+     "start": 1694637900000,
+     "letter": "B"
+    }
+   }
+  },
+  {
+   "group": 4,
+   "query_row": 2367038,
+   "query_sym": "DGBUSDT",
+   "query_start": 1620434700000,
+   "order": [
+    "C2_shape_raw",
+    "C1_shape_detrend",
+    "C4_random",
+    "C3_context_random"
+   ],
+   "degraded_c3": false,
+   "candidates": {
+    "C1_shape_detrend": {
+     "row": 562167,
+     "sym": "ASRUSDT",
+     "start": 1727226000000,
+     "letter": "B"
+    },
+    "C2_shape_raw": {
+     "row": 1377807,
+     "sym": "BTCUSDT",
+     "start": 1613158200000,
+     "letter": "A"
+    },
+    "C3_context_random": {
+     "row": 5378580,
+     "sym": "OMGUSDT",
+     "start": 1618313400000,
+     "letter": "D"
+    },
+    "C4_random": {
+     "row": 8286524,
+     "sym": "ZENUSDT",
+     "start": 1666068300000,
+     "letter": "C"
+    }
+   }
+  },
+  {
+   "group": 5,
+   "query_row": 6924151,
+   "query_sym": "TFUELUSDT",
+   "query_start": 1562412600000,
+   "order": [
+    "C4_random",
+    "C3_context_random",
+    "C1_shape_detrend",
+    "C2_shape_raw"
+   ],
+   "degraded_c3": false,
+   "candidates": {
+    "C1_shape_detrend": {
+     "row": 2029039,
+     "sym": "CTSIUSDT",
+     "start": 1766462400000,
+     "letter": "C"
+    },
+    "C2_shape_raw": {
+     "row": 5356453,
+     "sym": "OGUSDT",
+     "start": 1752907500000,
+     "letter": "D"
+    },
+    "C3_context_random": {
+     "row": 156335,
+     "sym": "ADAUSDT",
+     "start": 1558765800000,
+     "letter": "B"
+    },
+    "C4_random": {
+     "row": 6146100,
+     "sym": "RSRUSDT",
+     "start": 1774909800000,
+     "letter": "A"
+    }
+   }
+  },
+  {
+   "group": 6,
+   "query_row": 5729476,
+   "query_sym": "PERLUSDT",
+   "query_start": 1673973900000,
+   "order": [
+    "C3_context_random",
+    "C2_shape_raw",
+    "C4_random",
+    "C1_shape_detrend"
+   ],
+   "degraded_c3": false,
+   "candidates": {
+    "C1_shape_detrend": {
+     "row": 907693,
+     "sym": "BAKEUSDT",
+     "start": 1673973900000,
+     "letter": "D"
+    },
+    "C2_shape_raw": {
+     "row": 4466700,
+     "sym": "LPTUSDT",
+     "start": 1673973900000,
+     "letter": "B"
+    },
+    "C3_context_random": {
+     "row": 7631735,
+     "sym": "VETUSDT",
+     "start": 1676582100000,
+     "letter": "A"
+    },
+    "C4_random": {
+     "row": 1063637,
+     "sym": "BATUSDT",
+     "start": 1634969700000,
+     "letter": "C"
+    }
+   }
+  },
+  {
+   "group": 7,
+   "query_row": 772035,
+   "query_sym": "AVAUSDT",
+   "query_start": 1735591500000,
+   "order": [
+    "C4_random",
+    "C2_shape_raw",
+    "C1_shape_detrend",
+    "C3_context_random"
+   ],
+   "degraded_c3": false,
+   "candidates": {
+    "C1_shape_detrend": {
+     "row": 5816933,
+     "sym": "PSGUSDT",
+     "start": 1661071500000,
+     "letter": "C"
+    },
+    "C2_shape_raw": {
+     "row": 5715806,
+     "sym": "PERLUSDT",
+     "start": 1611864900000,
+     "letter": "B"
+    },
+    "C3_context_random": {
+     "row": 7643976,
+     "sym": "VETUSDT",
+     "start": 1731761100000,
+     "letter": "D"
+    },
+    "C4_random": {
+     "row": 2291124,
+     "sym": "DENTUSDT",
+     "start": 1597371300000,
+     "letter": "A"
+    }
+   }
+  },
+  {
+   "group": 8,
+   "query_row": 6623080,
+   "query_sym": "STPTUSDT",
+   "query_start": 1668711600000,
+   "order": [
+    "C4_random",
+    "C1_shape_detrend",
+    "C3_context_random",
+    "C2_shape_raw"
+   ],
+   "degraded_c3": false,
+   "candidates": {
+    "C1_shape_detrend": {
+     "row": 3397548,
+     "sym": "FUNUSDT",
+     "start": 1647711000000,
+     "letter": "B"
+    },
+    "C2_shape_raw": {
+     "row": 7049196,
+     "sym": "TKOUSDT",
+     "start": 1722199500000,
+     "letter": "D"
+    },
+    "C3_context_random": {
+     "row": 6502018,
+     "sym": "SOLUSDT",
+     "start": 1666167300000,
+     "letter": "C"
+    },
+    "C4_random": {
+     "row": 5724059,
+     "sym": "PERLUSDT",
+     "start": 1649597400000,
+     "letter": "A"
+    }
+   }
+  },
+  {
+   "group": 9,
+   "query_row": 263339,
+   "query_sym": "ALGOUSDT",
+   "query_start": 1685452500000,
+   "order": [
+    "C1_shape_detrend",
+    "C2_shape_raw",
+    "C4_random",
+    "C3_context_random"
+   ],
+   "degraded_c3": false,
+   "candidates": {
+    "C1_shape_detrend": {
+     "row": 7851179,
+     "sym": "WINGUSDT",
+     "start": 1742032800000,
+     "letter": "A"
+    },
+    "C2_shape_raw": {
+     "row": 5883839,
+     "sym": "QTUMUSDT",
+     "start": 1522241100000,
+     "letter": "B"
+    },
+    "C3_context_random": {
+     "row": 7580263,
+     "sym": "UTKUSDT",
+     "start": 1686311100000,
+     "letter": "D"
+    },
+    "C4_random": {
+     "row": 1797361,
+     "sym": "COMPUSDT",
+     "start": 1683548100000,
+     "letter": "C"
+    }
+   }
+  },
+  {
+   "group": 10,
+   "query_row": 2481444,
+   "query_sym": "DODOUSDT",
+   "query_start": 1616722200000,
+   "order": [
+    "C2_shape_raw",
+    "C4_random",
+    "C1_shape_detrend",
+    "C3_context_random"
+   ],
+   "degraded_c3": false,
+   "candidates": {
+    "C1_shape_detrend": {
+     "row": 1439000,
+     "sym": "BUSDUSDT",
+     "start": 1669725000000,
+     "letter": "C"
+    },
+    "C2_shape_raw": {
+     "row": 7317738,
+     "sym": "TUSDUSDT",
+     "start": 1584698400000,
+     "letter": "A"
+    },
+    "C3_context_random": {
+     "row": 4681424,
+     "sym": "LUNAUSDT",
+     "start": 1619938800000,
+     "letter": "D"
+    },
+    "C4_random": {
+     "row": 4582166,
+     "sym": "LTCUSDT",
+     "start": 1528037100000,
+     "letter": "B"
+    }
+   }
+  },
+  {
+   "group": 11,
+   "query_row": 5889092,
+   "query_sym": "QTUMUSDT",
+   "query_start": 1546436700000,
+   "order": [
+    "C2_shape_raw",
+    "C1_shape_detrend",
+    "C3_context_random",
+    "C4_random"
+   ],
+   "degraded_c3": false,
+   "candidates": {
+    "C1_shape_detrend": {
+     "row": 4650648,
+     "sym": "LTOUSDT",
+     "start": 1634181300000,
+     "letter": "B"
+    },
+    "C2_shape_raw": {
+     "row": 3943729,
+     "sym": "IOTAUSDT",
+     "start": 1622233800000,
+     "letter": "A"
+    },
+    "C3_context_random": {
+     "row": 3744904,
+     "sym": "ICXUSDT",
+     "start": 1547568900000,
+     "letter": "C"
+    },
+    "C4_random": {
+     "row": 5686674,
+     "sym": "PAXGUSDT",
+     "start": 1702915200000,
+     "letter": "D"
+    }
+   }
+  },
+  {
+   "group": 12,
+   "query_row": 533174,
+   "query_sym": "ARUSDT",
+   "query_start": 1776712500000,
+   "order": [
+    "C4_random",
+    "C2_shape_raw",
+    "C3_context_random",
+    "C1_shape_detrend"
+   ],
+   "degraded_c3": false,
+   "candidates": {
+    "C1_shape_detrend": {
+     "row": 3829419,
+     "sym": "IDEXUSDT",
+     "start": 1773062100000,
+     "letter": "D"
+    },
+    "C2_shape_raw": {
+     "row": 2362372,
+     "sym": "DGBUSDT",
+     "start": 1598756400000,
+     "letter": "B"
+    },
+    "C3_context_random": {
+     "row": 8267922,
+     "sym": "ZECUSDT",
+     "start": 1777407300000,
+     "letter": "C"
+    },
+    "C4_random": {
+     "row": 798389,
+     "sym": "AVAXUSDT",
+     "start": 1665878400000,
+     "letter": "A"
+    }
+   }
+  },
+  {
+   "group": 13,
+   "query_row": 4555911,
+   "query_sym": "LSKUSDT",
+   "query_start": 1686136500000,
+   "order": [
+    "C3_context_random",
+    "C2_shape_raw",
+    "C4_random",
+    "C1_shape_detrend"
+   ],
+   "degraded_c3": false,
+   "candidates": {
+    "C1_shape_detrend": {
+     "row": 2652077,
+     "sym": "DUSKUSDT",
+     "start": 1612093500000,
+     "letter": "D"
+    },
+    "C2_shape_raw": {
+     "row": 5933323,
+     "sym": "QTUMUSDT",
+     "start": 1747603800000,
+     "letter": "B"
+    },
+    "C3_context_random": {
+     "row": 6705683,
+     "sym": "STXUSDT",
+     "start": 1684133100000,
+     "letter": "A"
+    },
+    "C4_random": {
+     "row": 5945623,
+     "sym": "RENUSDT",
+     "start": 1582817400000,
+     "letter": "C"
+    }
+   }
+  },
+  {
+   "group": 14,
+   "query_row": 5024269,
+   "query_sym": "MTLUSDT",
+   "query_start": 1709361000000,
+   "order": [
+    "C1_shape_detrend",
+    "C2_shape_raw",
+    "C3_context_random",
+    "C4_random"
+   ],
+   "degraded_c3": false,
+   "candidates": {
+    "C1_shape_detrend": {
+     "row": 6944677,
+     "sym": "TFUELUSDT",
+     "start": 1656481500000,
+     "letter": "A"
+    },
+    "C2_shape_raw": {
+     "row": 5126051,
+     "sym": "NEOUSDT",
+     "start": 1705508100000,
+     "letter": "B"
+    },
+    "C3_context_random": {
+     "row": 6587008,
+     "sym": "STORJUSDT",
+     "start": 1708475400000,
+     "letter": "C"
+    },
+    "C4_random": {
+     "row": 2134369,
+     "sym": "DASHUSDT",
+     "start": 1629315900000,
+     "letter": "D"
+    }
+   }
+  },
+  {
+   "group": 15,
+   "query_row": 37880,
+   "query_sym": "1INCHUSDT",
+   "query_start": 1780020900000,
+   "order": [
+    "C4_random",
+    "C3_context_random",
+    "C2_shape_raw",
+    "C1_shape_detrend"
+   ],
+   "degraded_c3": false,
+   "candidates": {
+    "C1_shape_detrend": {
+     "row": 2567805,
+     "sym": "DOGEUSDT",
+     "start": 1780020900000,
+     "letter": "D"
+    },
+    "C2_shape_raw": {
+     "row": 6238041,
+     "sym": "RVNUSDT",
+     "start": 1780020900000,
+     "letter": "C"
+    },
+    "C3_context_random": {
+     "row": 6362741,
+     "sym": "SFPUSDT",
+     "start": 1778186700000,
+     "letter": "B"
+    },
+    "C4_random": {
+     "row": 1141126,
+     "sym": "BCHUSDT",
+     "start": 1770228000000,
+     "letter": "A"
+    }
+   }
+  },
+  {
+   "group": 16,
+   "query_row": 2498792,
+   "query_sym": "DODOUSDT",
+   "query_start": 1695291300000,
+   "order": [
+    "C2_shape_raw",
+    "C1_shape_detrend",
+    "C4_random",
+    "C3_context_random"
+   ],
+   "degraded_c3": false,
+   "candidates": {
+    "C1_shape_detrend": {
+     "row": 650511,
+     "sym": "ATMUSDT",
+     "start": 1788394500000,
+     "letter": "B"
+    },
+    "C2_shape_raw": {
+     "row": 1392478,
+     "sym": "BTCUSDT",
+     "start": 1679776200000,
+     "letter": "A"
+    },
+    "C3_context_random": {
+     "row": 2312895,
+     "sym": "DENTUSDT",
+     "start": 1696315500000,
+     "letter": "D"
+    },
+    "C4_random": {
+     "row": 1931784,
+     "sym": "CRVUSDT",
+     "start": 1675780200000,
+     "letter": "C"
+    }
+   }
+  },
+  {
+   "group": 17,
+   "query_row": 5535514,
+   "query_sym": "ONGUSDT",
+   "query_start": 1773618300000,
+   "order": [
+    "C4_random",
+    "C1_shape_detrend",
+    "C3_context_random",
+    "C2_shape_raw"
+   ],
+   "degraded_c3": false,
+   "candidates": {
+    "C1_shape_detrend": {
+     "row": 2958845,
+     "sym": "EURUSDT",
+     "start": 1602108000000,
+     "letter": "B"
+    },
+    "C2_shape_raw": {
+     "row": 7540722,
+     "sym": "USDCUSDT",
+     "start": 1695726900000,
+     "letter": "D"
+    },
+    "C3_context_random": {
+     "row": 5938637,
+     "sym": "QTUMUSDT",
+     "start": 1771516800000,
+     "letter": "C"
+    },
+    "C4_random": {
+     "row": 672707,
+     "sym": "ATOMUSDT",
+     "start": 1656756900000,
+     "letter": "A"
+    }
+   }
+  },
+  {
+   "group": 18,
+   "query_row": 4278607,
+   "query_sym": "KNCUSDT",
+   "query_start": 1677414600000,
+   "order": [
+    "C2_shape_raw",
+    "C3_context_random",
+    "C4_random",
+    "C1_shape_detrend"
+   ],
+   "degraded_c3": false,
+   "candidates": {
+    "C1_shape_detrend": {
+     "row": 5187370,
+     "sym": "NKNUSDT",
+     "start": 1763977500000,
+     "letter": "D"
+    },
+    "C2_shape_raw": {
+     "row": 660714,
+     "sym": "ATOMUSDT",
+     "start": 1601903700000,
+     "letter": "A"
+    },
+    "C3_context_random": {
+     "row": 5918347,
+     "sym": "QTUMUSDT",
+     "start": 1680211800000,
+     "letter": "B"
+    },
+    "C4_random": {
+     "row": 6131342,
+     "sym": "RSRUSDT",
+     "start": 1708498800000,
+     "letter": "C"
+    }
+   }
+  },
+  {
+   "group": 19,
+   "query_row": 4122072,
+   "query_sym": "JUVUSDT",
+   "query_start": 1702359000000,
+   "order": [
+    "C4_random",
+    "C1_shape_detrend",
+    "C2_shape_raw",
+    "C3_context_random"
+   ],
+   "degraded_c3": false,
+   "candidates": {
+    "C1_shape_detrend": {
+     "row": 556641,
+     "sym": "ASRUSDT",
+     "start": 1702359000000,
+     "letter": "B"
+    },
+    "C2_shape_raw": {
+     "row": 6287730,
+     "sym": "SCUSDT",
+     "start": 1616600700000,
+     "letter": "C"
+    },
+    "C3_context_random": {
+     "row": 4620223,
+     "sym": "LTCUSDT",
+     "start": 1704746700000,
+     "letter": "D"
+    },
+    "C4_random": {
+     "row": 267521,
+     "sym": "ALGOUSDT",
+     "start": 1704271500000,
+     "letter": "A"
+    }
+   }
+  },
+  {
+   "group": 20,
+   "query_row": 5646452,
+   "query_sym": "OXTUSDT",
+   "query_start": 1699152300000,
+   "order": [
+    "C1_shape_detrend",
+    "C4_random",
+    "C3_context_random",
+    "C2_shape_raw"
+   ],
+   "degraded_c3": false,
+   "candidates": {
+    "C1_shape_detrend": {
+     "row": 7717045,
+     "sym": "VTHOUSDT",
+     "start": 1704023100000,
+     "letter": "A"
+    },
+    "C2_shape_raw": {
+     "row": 6587570,
+     "sym": "STORJUSDT",
+     "start": 1711004400000,
+     "letter": "D"
+    },
+    "C3_context_random": {
+     "row": 1718877,
+     "sym": "CHZUSDT",
+     "start": 1698322500000,
+     "letter": "C"
+    },
+    "C4_random": {
+     "row": 5477895,
+     "sym": "ONEUSDT",
+     "start": 1751835600000,
+     "letter": "B"
+    }
+   }
+  },
+  {
+   "group": 21,
+   "query_row": 201806,
+   "query_sym": "ADAUSDT",
+   "query_start": 1765275300000,
+   "order": [
+    "C3_context_random",
+    "C4_random",
+    "C2_shape_raw",
+    "C1_shape_detrend"
+   ],
+   "degraded_c3": false,
+   "candidates": {
+    "C1_shape_detrend": {
+     "row": 1865150,
+     "sym": "COSUSDT",
+     "start": 1765275300000,
+     "letter": "D"
+    },
+    "C2_shape_raw": {
+     "row": 923278,
+     "sym": "BAKEUSDT",
+     "start": 1744200900000,
+     "letter": "C"
+    },
+    "C3_context_random": {
+     "row": 7167805,
+     "sym": "TRBUSDT",
+     "start": 1762464600000,
+     "letter": "A"
+    },
+    "C4_random": {
+     "row": 5893902,
+     "sym": "QTUMUSDT",
+     "start": 1568527200000,
+     "letter": "B"
+    }
+   }
+  },
+  {
+   "group": 22,
+   "query_row": 4807994,
+   "query_sym": "MATICUSDT",
+   "query_start": 1598844600000,
+   "order": [
+    "C2_shape_raw",
+    "C3_context_random",
+    "C1_shape_detrend",
+    "C4_random"
+   ],
+   "degraded_c3": false,
+   "candidates": {
+    "C1_shape_detrend": {
+     "row": 841301,
+     "sym": "AXSUSDT",
+     "start": 1674504000000,
+     "letter": "C"
+    },
+    "C2_shape_raw": {
+     "row": 3415342,
+     "sym": "FUNUSDT",
+     "start": 1727878500000,
+     "letter": "A"
+    },
+    "C3_context_random": {
+     "row": 8003705,
+     "sym": "XMRUSDT",
+     "start": 1600310700000,
+     "letter": "B"
+    },
+    "C4_random": {
+     "row": 2782872,
+     "sym": "ENJUSDT",
+     "start": 1779111000000,
+     "letter": "D"
+    }
+   }
+  },
+  {
+   "group": 23,
+   "query_row": 1292939,
+   "query_sym": "BNBUSDT",
+   "query_start": 1722987000000,
+   "order": [
+    "C2_shape_raw",
+    "C3_context_random",
+    "C4_random",
+    "C1_shape_detrend"
+   ],
+   "degraded_c3": false,
+   "candidates": {
+    "C1_shape_detrend": {
+     "row": 521235,
+     "sym": "ARUSDT",
+     "start": 1722987000000,
+     "letter": "D"
+    },
+    "C2_shape_raw": {
+     "row": 1470420,
+     "sym": "CAKEUSDT",
+     "start": 1722987900000,
+     "letter": "A"
+    },
+    "C3_context_random": {
+     "row": 5026790,
+     "sym": "MTLUSDT",
+     "start": 1720705500000,
+     "letter": "B"
+    },
+    "C4_random": {
+     "row": 2333038,
+     "sym": "DFUSDT",
+     "start": 1642276800000,
+     "letter": "C"
+    }
+   }
+  },
+  {
+   "group": 24,
+   "query_row": 291991,
+   "query_sym": "ALICEUSDT",
+   "query_start": 1640631600000,
+   "order": [
+    "C3_context_random",
+    "C4_random",
+    "C2_shape_raw",
+    "C1_shape_detrend"
+   ],
+   "degraded_c3": false,
+   "candidates": {
+    "C1_shape_detrend": {
+     "row": 7623746,
+     "sym": "VETUSDT",
+     "start": 1640631600000,
+     "letter": "D"
+    },
+    "C2_shape_raw": {
+     "row": 5453204,
+     "sym": "ONEUSDT",
+     "start": 1640631600000,
+     "letter": "C"
+    },
+    "C3_context_random": {
+     "row": 7117557,
+     "sym": "TOMOUSDT",
+     "start": 1636954200000,
+     "letter": "A"
+    },
+    "C4_random": {
+     "row": 3845237,
+     "sym": "INJUSDT",
+     "start": 1673451000000,
+     "letter": "B"
+    }
+   }
+  },
+  {
+   "group": 25,
+   "query_row": 3037152,
+   "query_sym": "FETUSDT",
+   "query_start": 1566508500000,
+   "order": [
+    "C2_shape_raw",
+    "C1_shape_detrend",
+    "C4_random",
+    "C3_context_random"
+   ],
+   "degraded_c3": false,
+   "candidates": {
+    "C1_shape_detrend": {
+     "row": 5731036,
+     "sym": "PERLUSDT",
+     "start": 1681088400000,
+     "letter": "B"
+    },
+    "C2_shape_raw": {
+     "row": 5212302,
+     "sym": "NMRUSDT",
+     "start": 1704126600000,
+     "letter": "A"
+    },
+    "C3_context_random": {
+     "row": 7256519,
+     "sym": "TRXUSDT",
+     "start": 1568225700000,
+     "letter": "D"
+    },
+    "C4_random": {
+     "row": 5876437,
+     "sym": "PUNDIXUSDT",
+     "start": 1757426400000,
+     "letter": "C"
+    }
+   }
+  },
+  {
+   "group": 26,
+   "query_row": 6429959,
+   "query_sym": "SLPUSDT",
+   "query_start": 1728513900000,
+   "order": [
+    "C4_random",
+    "C2_shape_raw",
+    "C3_context_random",
+    "C1_shape_detrend"
+   ],
+   "degraded_c3": false,
+   "candidates": {
+    "C1_shape_detrend": {
+     "row": 8120677,
+     "sym": "XTZUSDT",
+     "start": 1728513900000,
+     "letter": "D"
+    },
+    "C2_shape_raw": {
+     "row": 859216,
+     "sym": "AXSUSDT",
+     "start": 1755216000000,
+     "letter": "B"
+    },
+    "C3_context_random": {
+     "row": 6592314,
+     "sym": "STORJUSDT",
+     "start": 1732352400000,
+     "letter": "C"
+    },
+    "C4_random": {
+     "row": 8389243,
+     "sym": "ZRXUSDT",
+     "start": 1654564500000,
+     "letter": "A"
+    }
+   }
+  },
+  {
+   "group": 27,
+   "query_row": 4768530,
+   "query_sym": "MASKUSDT",
+   "query_start": 1653787800000,
+   "order": [
+    "C4_random",
+    "C3_context_random",
+    "C2_shape_raw",
+    "C1_shape_detrend"
+   ],
+   "degraded_c3": false,
+   "candidates": {
+    "C1_shape_detrend": {
+     "row": 84596,
+     "sym": "ACAUSDT",
+     "start": 1657165500000,
+     "letter": "D"
+    },
+    "C2_shape_raw": {
+     "row": 4750207,
+     "sym": "MANAUSDT",
+     "start": 1739158200000,
+     "letter": "C"
+    },
+    "C3_context_random": {
+     "row": 295054,
+     "sym": "ALICEUSDT",
+     "start": 1654415100000,
+     "letter": "B"
+    },
+    "C4_random": {
+     "row": 580819,
+     "sym": "ATAUSDT",
+     "start": 1644457500000,
+     "letter": "A"
+    }
+   }
+  },
+  {
+   "group": 28,
+   "query_row": 8285750,
+   "query_sym": "ZENUSDT",
+   "query_start": 1662585300000,
+   "order": [
+    "C3_context_random",
+    "C4_random",
+    "C1_shape_detrend",
+    "C2_shape_raw"
+   ],
+   "degraded_c3": false,
+   "candidates": {
+    "C1_shape_detrend": {
+     "row": 1069774,
+     "sym": "BATUSDT",
+     "start": 1662586200000,
+     "letter": "C"
+    },
+    "C2_shape_raw": {
+     "row": 4348343,
+     "sym": "LINAUSDT",
+     "start": 1627897500000,
+     "letter": "D"
+    },
+    "C3_context_random": {
+     "row": 6377639,
+     "sym": "SKLUSDT",
+     "start": 1662849000000,
+     "letter": "A"
+    },
+    "C4_random": {
+     "row": 3882469,
+     "sym": "IOSTUSDT",
+     "start": 1605406500000,
+     "letter": "B"
+    }
+   }
+  },
+  {
+   "group": 29,
+   "query_row": 3983354,
+   "query_sym": "IOTXUSDT",
+   "query_start": 1584989100000,
+   "order": [
+    "C3_context_random",
+    "C2_shape_raw",
+    "C4_random",
+    "C1_shape_detrend"
+   ],
+   "degraded_c3": false,
+   "candidates": {
+    "C1_shape_detrend": {
+     "row": 833893,
+     "sym": "AXSUSDT",
+     "start": 1641168000000,
+     "letter": "D"
+    },
+    "C2_shape_raw": {
+     "row": 929224,
+     "sym": "BALUSDT",
+     "start": 1610385300000,
+     "letter": "B"
+    },
+    "C3_context_random": {
+     "row": 3878160,
+     "sym": "IOSTUSDT",
+     "start": 1585814400000,
+     "letter": "A"
+    },
+    "C4_random": {
+     "row": 2747833,
+     "sym": "ENJUSDT",
+     "start": 1621142100000,
+     "letter": "C"
+    }
+   }
+  },
+  {
+   "group": 30,
+   "query_row": 5657988,
+   "query_sym": "OXTUSDT",
+   "query_start": 1751064300000,
+   "order": [
+    "C3_context_random",
+    "C1_shape_detrend",
+    "C2_shape_raw",
+    "C4_random"
+   ],
+   "degraded_c3": false,
+   "candidates": {
+    "C1_shape_detrend": {
+     "row": 3493938,
+     "sym": "GRTUSDT",
+     "start": 1643579100000,
+     "letter": "B"
+    },
+    "C2_shape_raw": {
+     "row": 198715,
+     "sym": "ADAUSDT",
+     "start": 1751365800000,
+     "letter": "C"
+    },
+    "C3_context_random": {
+     "row": 4337136,
+     "sym": "KSMUSDT",
+     "start": 1751139900000,
+     "letter": "A"
+    },
+    "C4_random": {
+     "row": 3371051,
+     "sym": "FTTUSDT",
+     "start": 1749959100000,
+     "letter": "D"
+    }
+   }
+  },
+  {
+   "group": 31,
+   "query_row": 8181759,
+   "query_sym": "YFIUSDT",
+   "query_start": 1624170600000,
+   "order": [
+    "C2_shape_raw",
+    "C3_context_random",
+    "C4_random",
+    "C1_shape_detrend"
+   ],
+   "degraded_c3": false,
+   "candidates": {
+    "C1_shape_detrend": {
+     "row": 6369088,
+     "sym": "SKLUSDT",
+     "start": 1624170600000,
+     "letter": "D"
+    },
+    "C2_shape_raw": {
+     "row": 5156367,
+     "sym": "NKNUSDT",
+     "start": 1624170600000,
+     "letter": "A"
+    },
+    "C3_context_random": {
+     "row": 4152790,
+     "sym": "KAVAUSDT",
+     "start": 1623991500000,
+     "letter": "B"
+    },
+    "C4_random": {
+     "row": 1121557,
+     "sym": "BCHUSDT",
+     "start": 1682167500000,
+     "letter": "C"
+    }
+   }
+  },
+  {
+   "group": 32,
+   "query_row": 7497505,
+   "query_sym": "UNIUSDT",
+   "query_start": 1729756800000,
+   "order": [
+    "C1_shape_detrend",
+    "C3_context_random",
+    "C2_shape_raw",
+    "C4_random"
+   ],
+   "degraded_c3": false,
+   "candidates": {
+    "C1_shape_detrend": {
+     "row": 7420271,
+     "sym": "UMAUSDT",
+     "start": 1694882700000,
+     "letter": "A"
+    },
+    "C2_shape_raw": {
+     "row": 6643981,
+     "sym": "STRAXUSDT",
+     "start": 1621672200000,
+     "letter": "C"
+    },
+    "C3_context_random": {
+     "row": 2506648,
+     "sym": "DODOUSDT",
+     "start": 1730643300000,
+     "letter": "B"
+    },
+    "C4_random": {
+     "row": 6490168,
+     "sym": "SOLUSDT",
+     "start": 1612243800000,
+     "letter": "D"
+    }
+   }
+  },
+  {
+   "group": 33,
+   "query_row": 606545,
+   "query_sym": "ATAUSDT",
+   "query_start": 1760319000000,
+   "order": [
+    "C1_shape_detrend",
+    "C3_context_random",
+    "C4_random",
+    "C2_shape_raw"
+   ],
+   "degraded_c3": false,
+   "candidates": {
+    "C1_shape_detrend": {
+     "row": 279976,
+     "sym": "ALGOUSDT",
+     "start": 1760319000000,
+     "letter": "A"
+    },
+    "C2_shape_raw": {
+     "row": 5792265,
+     "sym": "PONDUSDT",
+     "start": 1724373900000,
+     "letter": "D"
+    },
+    "C3_context_random": {
+     "row": 491943,
+     "sym": "ARPAUSDT",
+     "start": 1759833900000,
+     "letter": "B"
+    },
+    "C4_random": {
+     "row": 521711,
+     "sym": "ARUSDT",
+     "start": 1725129000000,
+     "letter": "C"
+    }
+   }
+  },
+  {
+   "group": 34,
+   "query_row": 3655410,
+   "query_sym": "HOTUSDT",
+   "query_start": 1572759000000,
+   "order": [
+    "C4_random",
+    "C2_shape_raw",
+    "C3_context_random",
+    "C1_shape_detrend"
+   ],
+   "degraded_c3": false,
+   "candidates": {
+    "C1_shape_detrend": {
+     "row": 1896660,
+     "sym": "COTIUSDT",
+     "start": 1709324100000,
+     "letter": "D"
+    },
+    "C2_shape_raw": {
+     "row": 7312877,
+     "sym": "TUSDUSDT",
+     "start": 1562208300000,
+     "letter": "B"
+    },
+    "C3_context_random": {
+     "row": 4993680,
+     "sym": "MTLUSDT",
+     "start": 1570032900000,
+     "letter": "C"
+    },
+    "C4_random": {
+     "row": 8106786,
+     "sym": "XTZUSDT",
+     "start": 1665909900000,
+     "letter": "A"
+    }
+   }
+  },
+  {
+   "group": 35,
+   "query_row": 1653332,
+   "query_sym": "CHRUSDT",
+   "query_start": 1623600900000,
+   "order": [
+    "C1_shape_detrend",
+    "C2_shape_raw",
+    "C4_random",
+    "C3_context_random"
+   ],
+   "degraded_c3": false,
+   "candidates": {
+    "C1_shape_detrend": {
+     "row": 6255540,
+     "sym": "SANDUSDT",
+     "start": 1667108700000,
+     "letter": "A"
+    },
+    "C2_shape_raw": {
+     "row": 1601865,
+     "sym": "CFXUSDT",
+     "start": 1728187200000,
+     "letter": "B"
+    },
+    "C3_context_random": {
+     "row": 788945,
+     "sym": "AVAXUSDT",
+     "start": 1623181500000,
+     "letter": "D"
+    },
+    "C4_random": {
+     "row": 8193877,
+     "sym": "YFIUSDT",
+     "start": 1678900500000,
+     "letter": "C"
+    }
+   }
+  },
+  {
+   "group": 36,
+   "query_row": 7494917,
+   "query_sym": "UNIUSDT",
+   "query_start": 1718110800000,
+   "order": [
+    "C4_random",
+    "C3_context_random",
+    "C2_shape_raw",
+    "C1_shape_detrend"
+   ],
+   "degraded_c3": false,
+   "candidates": {
+    "C1_shape_detrend": {
+     "row": 4252412,
+     "sym": "KMDUSDT",
+     "start": 1718110800000,
+     "letter": "D"
+    },
+    "C2_shape_raw": {
+     "row": 1268448,
+     "sym": "BNBUSDT",
+     "start": 1612093500000,
+     "letter": "C"
+    },
+    "C3_context_random": {
+     "row": 7977976,
+     "sym": "XLMUSDT",
+     "start": 1720825200000,
+     "letter": "B"
+    },
+    "C4_random": {
+     "row": 7897408,
+     "sym": "WINUSDT",
+     "start": 1770444000000,
+     "letter": "A"
+    }
+   }
+  },
+  {
+   "group": 37,
+   "query_row": 1068320,
+   "query_sym": "BATUSDT",
+   "query_start": 1656043200000,
+   "order": [
+    "C3_context_random",
+    "C4_random",
+    "C1_shape_detrend",
+    "C2_shape_raw"
+   ],
+   "degraded_c3": false,
+   "candidates": {
+    "C1_shape_detrend": {
+     "row": 6534440,
+     "sym": "STMXUSDT",
+     "start": 1614535200000,
+     "letter": "C"
+    },
+    "C2_shape_raw": {
+     "row": 7669537,
+     "sym": "VITEUSDT",
+     "start": 1634463900000,
+     "letter": "D"
+    },
+    "C3_context_random": {
+     "row": 218611,
+     "sym": "AKROUSDT",
+     "start": 1656134100000,
+     "letter": "A"
+    },
+    "C4_random": {
+     "row": 2684515,
+     "sym": "DUSKUSDT",
+     "start": 1758748500000,
+     "letter": "B"
+    }
+   }
+  },
+  {
+   "group": 38,
+   "query_row": 4483875,
+   "query_sym": "LPTUSDT",
+   "query_start": 1751355900000,
+   "order": [
+    "C2_shape_raw",
+    "C1_shape_detrend",
+    "C3_context_random",
+    "C4_random"
+   ],
+   "degraded_c3": false,
+   "candidates": {
+    "C1_shape_detrend": {
+     "row": 7519712,
+     "sym": "USDCUSDT",
+     "start": 1585533600000,
+     "letter": "B"
+    },
+    "C2_shape_raw": {
+     "row": 5280720,
+     "sym": "OGNUSDT",
+     "start": 1590981300000,
+     "letter": "A"
+    },
+    "C3_context_random": {
+     "row": 2683374,
+     "sym": "DUSKUSDT",
+     "start": 1753614000000,
+     "letter": "C"
+    },
+    "C4_random": {
+     "row": 2865903,
+     "sym": "ETCUSDT",
+     "start": 1678834800000,
+     "letter": "D"
+    }
+   }
+  },
+  {
+   "group": 39,
+   "query_row": 5370980,
+   "query_sym": "OMGUSDT",
+   "query_start": 1583435700000,
+   "order": [
+    "C2_shape_raw",
+    "C3_context_random",
+    "C4_random",
+    "C1_shape_detrend"
+   ],
+   "degraded_c3": false,
+   "candidates": {
+    "C1_shape_detrend": {
+     "row": 1872767,
+     "sym": "COTIUSDT",
+     "start": 1600826400000,
+     "letter": "D"
+    },
+    "C2_shape_raw": {
+     "row": 548124,
+     "sym": "ASRUSDT",
+     "start": 1663938000000,
+     "letter": "A"
+    },
+    "C3_context_random": {
+     "row": 5551068,
+     "sym": "ONTUSDT",
+     "start": 1583481600000,
+     "letter": "B"
+    },
+    "C4_random": {
+     "row": 4835182,
+     "sym": "MATICUSDT",
+     "start": 1722174300000,
+     "letter": "C"
+    }
+   }
+  },
+  {
+   "group": 40,
+   "query_row": 1249447,
+   "query_sym": "BNBUSDT",
+   "query_start": 1524588300000,
+   "order": [
+    "C2_shape_raw",
+    "C1_shape_detrend",
+    "C4_random",
+    "C3_context_random"
+   ],
+   "degraded_c3": false,
+   "candidates": {
+    "C1_shape_detrend": {
+     "row": 2772717,
+     "sym": "ENJUSDT",
+     "start": 1733413500000,
+     "letter": "B"
+    },
+    "C2_shape_raw": {
+     "row": 8207339,
+     "sym": "YFIUSDT",
+     "start": 1739574000000,
+     "letter": "A"
+    },
+    "C3_context_random": {
+     "row": 2835805,
+     "sym": "ETCUSDT",
+     "start": 1541245500000,
+     "letter": "D"
+    },
+    "C4_random": {
+     "row": 4842678,
+     "sym": "MBLUSDT",
+     "start": 1613033100000,
+     "letter": "C"
+    }
+   }
+  },
+  {
+   "group": 41,
+   "query_row": 2689044,
+   "query_sym": "DUSKUSDT",
+   "query_start": 1779129000000,
+   "order": [
+    "C3_context_random",
+    "C4_random",
+    "C2_shape_raw",
+    "C1_shape_detrend"
+   ],
+   "degraded_c3": false,
+   "candidates": {
+    "C1_shape_detrend": {
+     "row": 7303033,
+     "sym": "TRXUSDT",
+     "start": 1779220800000,
+     "letter": "D"
+    },
+    "C2_shape_raw": {
+     "row": 7244948,
+     "sym": "TRUUSDT",
+     "start": 1763693100000,
+     "letter": "C"
+    },
+    "C3_context_random": {
+     "row": 4717115,
+     "sym": "LUNAUSDT",
+     "start": 1782510300000,
+     "letter": "A"
+    },
+    "C4_random": {
+     "row": 6769411,
+     "sym": "SUNUSDT",
+     "start": 1783074600000,
+     "letter": "B"
+    }
+   }
+  },
+  {
+   "group": 42,
+   "query_row": 1260883,
+   "query_sym": "BNBUSDT",
+   "query_start": 1577257200000,
+   "order": [
+    "C1_shape_detrend",
+    "C2_shape_raw",
+    "C4_random",
+    "C3_context_random"
+   ],
+   "degraded_c3": false,
+   "candidates": {
+    "C1_shape_detrend": {
+     "row": 4023607,
+     "sym": "IOTXUSDT",
+     "start": 1767303900000,
+     "letter": "A"
+    },
+    "C2_shape_raw": {
+     "row": 4819929,
+     "sym": "MATICUSDT",
+     "start": 1653441300000,
+     "letter": "B"
+    },
+    "C3_context_random": {
+     "row": 3981266,
+     "sym": "IOTXUSDT",
+     "start": 1575296100000,
+     "letter": "D"
+    },
+    "C4_random": {
+     "row": 2939159,
+     "sym": "ETHUSDT",
+     "start": 1724929200000,
+     "letter": "C"
+    }
+   }
+  },
+  {
+   "group": 43,
+   "query_row": 1296410,
+   "query_sym": "BNBUSDT",
+   "query_start": 1738606500000,
+   "order": [
+    "C1_shape_detrend",
+    "C3_context_random",
+    "C2_shape_raw",
+    "C4_random"
+   ],
+   "degraded_c3": false,
+   "candidates": {
+    "C1_shape_detrend": {
+     "row": 1342518,
+     "sym": "BNTUSDT",
+     "start": 1738606500000,
+     "letter": "A"
+    },
+    "C2_shape_raw": {
+     "row": 3859695,
+     "sym": "INJUSDT",
+     "start": 1738606500000,
+     "letter": "C"
+    },
+    "C3_context_random": {
+     "row": 5276483,
+     "sym": "NULSUSDT",
+     "start": 1737658800000,
+     "letter": "B"
+    },
+    "C4_random": {
+     "row": 868658,
+     "sym": "BADGERUSDT",
+     "start": 1622726100000,
+     "letter": "D"
+    }
+   }
+  },
+  {
+   "group": 44,
+   "query_row": 738249,
+   "query_sym": "AUDIOUSDT",
+   "query_start": 1766305800000,
+   "order": [
+    "C2_shape_raw",
+    "C4_random",
+    "C3_context_random",
+    "C1_shape_detrend"
+   ],
+   "degraded_c3": false,
+   "candidates": {
+    "C1_shape_detrend": {
+     "row": 7356196,
+     "sym": "TUSDUSDT",
+     "start": 1773403200000,
+     "letter": "D"
+    },
+    "C2_shape_raw": {
+     "row": 7333487,
+     "sym": "TUSDUSDT",
+     "start": 1656650700000,
+     "letter": "A"
+    },
+    "C3_context_random": {
+     "row": 3164023,
+     "sym": "FIOUSDT",
+     "start": 1763162100000,
+     "letter": "C"
+    },
+    "C4_random": {
+     "row": 8120823,
+     "sym": "XTZUSDT",
+     "start": 1729170900000,
+     "letter": "B"
+    }
+   }
+  },
+  {
+   "group": 45,
+   "query_row": 5440963,
+   "query_sym": "ONEUSDT",
+   "query_start": 1584460800000,
+   "order": [
+    "C2_shape_raw",
+    "C1_shape_detrend",
+    "C4_random",
+    "C3_context_random"
+   ],
+   "degraded_c3": false,
+   "candidates": {
+    "C1_shape_detrend": {
+     "row": 1941826,
+     "sym": "CRVUSDT",
+     "start": 1721063700000,
+     "letter": "B"
+    },
+    "C2_shape_raw": {
+     "row": 6227328,
+     "sym": "RVNUSDT",
+     "start": 1731812400000,
+     "letter": "A"
+    },
+    "C3_context_random": {
+     "row": 5440893,
+     "sym": "ONEUSDT",
+     "start": 1584145800000,
+     "letter": "D"
+    },
+    "C4_random": {
+     "row": 4302179,
+     "sym": "KNCUSDT",
+     "start": 1783583100000,
+     "letter": "C"
+    }
+   }
+  },
+  {
+   "group": 46,
+   "query_row": 7752826,
+   "query_sym": "WANUSDT",
+   "query_start": 1643553000000,
+   "order": [
+    "C1_shape_detrend",
+    "C3_context_random",
+    "C2_shape_raw",
+    "C4_random"
+   ],
+   "degraded_c3": false,
+   "candidates": {
+    "C1_shape_detrend": {
+     "row": 6373351,
+     "sym": "SKLUSDT",
+     "start": 1643553000000,
+     "letter": "A"
+    },
+    "C2_shape_raw": {
+     "row": 1455227,
+     "sym": "CAKEUSDT",
+     "start": 1654524900000,
+     "letter": "C"
+    },
+    "C3_context_random": {
+     "row": 3094571,
+     "sym": "FILUSDT",
+     "start": 1640295900000,
+     "letter": "B"
+    },
+    "C4_random": {
+     "row": 7416100,
+     "sym": "UMAUSDT",
+     "start": 1676018700000,
+     "letter": "D"
+    }
+   }
+  },
+  {
+   "group": 47,
+   "query_row": 4659167,
+   "query_sym": "LTOUSDT",
+   "query_start": 1672516800000,
+   "order": [
+    "C4_random",
+    "C2_shape_raw",
+    "C1_shape_detrend",
+    "C3_context_random"
+   ],
+   "degraded_c3": false,
+   "candidates": {
+    "C1_shape_detrend": {
+     "row": 57923,
+     "sym": "AAVEUSDT",
+     "start": 1683972000000,
+     "letter": "C"
+    },
+    "C2_shape_raw": {
+     "row": 1753138,
+     "sym": "CKBUSDT",
+     "start": 1674806400000,
+     "letter": "B"
+    },
+    "C3_context_random": {
+     "row": 2183970,
+     "sym": "DATAUSDT",
+     "start": 1672632000000,
+     "letter": "D"
+    },
+    "C4_random": {
+     "row": 5888219,
+     "sym": "QTUMUSDT",
+     "start": 1542508200000,
+     "letter": "A"
+    }
+   }
+  },
+  {
+   "group": 48,
+   "query_row": 2364672,
+   "query_sym": "DGBUSDT",
+   "query_start": 1609397100000,
+   "order": [
+    "C3_context_random",
+    "C1_shape_detrend",
+    "C4_random",
+    "C2_shape_raw"
+   ],
+   "degraded_c3": false,
+   "candidates": {
+    "C1_shape_detrend": {
+     "row": 7852007,
+     "sym": "WINGUSDT",
+     "start": 1745758800000,
+     "letter": "B"
+    },
+    "C2_shape_raw": {
+     "row": 7709786,
+     "sym": "VTHOUSDT",
+     "start": 1671263100000,
+     "letter": "D"
+    },
+    "C3_context_random": {
+     "row": 1650736,
+     "sym": "CHRUSDT",
+     "start": 1611523800000,
+     "letter": "A"
+    },
+    "C4_random": {
+     "row": 6499768,
+     "sym": "SOLUSDT",
+     "start": 1656042300000,
+     "letter": "C"
+    }
+   }
+  },
+  {
+   "group": 49,
+   "query_row": 5586332,
+   "query_sym": "ONTUSDT",
+   "query_start": 1743345900000,
+   "order": [
+    "C1_shape_detrend",
+    "C2_shape_raw",
+    "C4_random",
+    "C3_context_random"
+   ],
+   "degraded_c3": false,
+   "candidates": {
+    "C1_shape_detrend": {
+     "row": 6229891,
+     "sym": "RVNUSDT",
+     "start": 1743345900000,
+     "letter": "A"
+    },
+    "C2_shape_raw": {
+     "row": 8123973,
+     "sym": "XTZUSDT",
+     "start": 1743345900000,
+     "letter": "B"
+    },
+    "C3_context_random": {
+     "row": 6884481,
+     "sym": "SXPUSDT",
+     "start": 1747133100000,
+     "letter": "D"
+    },
+    "C4_random": {
+     "row": 2932474,
+     "sym": "ETHUSDT",
+     "start": 1694846700000,
+     "letter": "C"
+    }
+   }
+  },
+  {
+   "group": 50,
+   "query_row": 1814663,
+   "query_sym": "COMPUSDT",
+   "query_start": 1761407100000,
+   "order": [
+    "C3_context_random",
+    "C1_shape_detrend",
+    "C4_random",
+    "C2_shape_raw"
+   ],
+   "degraded_c3": false,
+   "candidates": {
+    "C1_shape_detrend": {
+     "row": 8075852,
+     "sym": "XRPUSDT",
+     "start": 1745752500000,
+     "letter": "B"
+    },
+    "C2_shape_raw": {
+     "row": 3893802,
+     "sym": "IOSTUSDT",
+     "start": 1657285200000,
+     "letter": "D"
+    },
+    "C3_context_random": {
+     "row": 6184784,
+     "sym": "RUNEUSDT",
+     "start": 1759224600000,
+     "letter": "A"
+    },
+    "C4_random": {
+     "row": 6615718,
+     "sym": "STPTUSDT",
+     "start": 1635582600000,
+     "letter": "C"
+    }
+   }
+  }
+ ]
+}

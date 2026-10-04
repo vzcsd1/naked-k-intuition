@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>裸K盘感 · 相似 K 线联想</title>
+<style>
+:root{
+  --bg:#F1EFE8; --card:#FFFFFF; --fg:#2C2C2A; --mut:#5F5E5A; --line:#D3D1C7;
+  --up:#D4534E; --dn:#1D9E75; --acc:#185FA5; --accbg:#E6F1FB; --accbd:#B5D4F4;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+  font:14px/1.6 system-ui,"Segoe UI","Microsoft YaHei",sans-serif}
+.wrap{max-width:1240px;margin:0 auto;padding:18px 18px 60px}
+h1{font-size:19px;font-weight:600;margin:0 0 4px}
+.sub{color:var(--mut);font-size:13px;margin-bottom:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;margin-bottom:14px}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.row+.row{margin-top:10px}
+label{font-size:13px;color:var(--mut);white-space:nowrap}
+select,input[type=text]{padding:6px 9px;border:1px solid var(--line);border-radius:8px;
+  font:13px inherit;background:#fff;color:var(--fg)}
+select:focus,input:focus{outline:2px solid var(--accbd);outline-offset:0}
+#sym{min-width:150px}
+#time{min-width:170px}
+button{padding:7px 16px;border:0;border-radius:8px;background:var(--acc);color:#fff;
+  font:13px inherit;cursor:pointer}
+button:hover{filter:brightness(1.08)}
+button:disabled{background:#B4B2A9;cursor:not-allowed}
+button.ghost{background:#fff;color:var(--fg);border:1px solid var(--line)}
+.chk{display:flex;align-items:center;gap:5px;font-size:13px;color:var(--mut);cursor:pointer}
+.shotbox{position:relative;display:inline-block;line-height:0;cursor:crosshair}
+.shotbox svg{position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none}
+#shotprev{max-width:520px;max-height:300px;display:block;border:1px solid var(--line)}
+.hintline{font-size:12px;color:var(--mut);margin-top:8px;line-height:1.6}
+#shottop,#shotbot{width:96px}
+.warn{background:#FDF6E3;border:1px solid #E9D9A6;color:#5C4B1A;border-radius:10px;
+  padding:10px 12px;font-size:13px;margin-bottom:14px;line-height:1.65}
+.warn b{color:#8A6D1B}
+.qhead{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:8px}
+.qtag{font-size:12px;color:#0C447C;background:var(--accbg);border:1px solid var(--accbd);
+  border-radius:20px;padding:1px 10px}
+.tag{font-size:12px;color:var(--mut)}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+@media(max-width:1080px){.grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:820px){.grid{grid-template-columns:repeat(2,1fr)}}
+.cand{background:#FBFAF7;border:1px solid var(--line);border-radius:9px;padding:7px;
+  cursor:pointer;transition:border-color .15s,background .15s;position:relative}
+.cand:hover{border-color:#85B7EB;background:#F7FBFF}
+.cand .lab{font-size:12px;font-weight:600;color:#0C447C}
+.cand .meta{font-size:11px;color:#888780;margin-bottom:2px;display:flex;
+  justify-content:space-between;gap:6px}
+.cand .meta .d{color:#B4B2A9}
+.legend{font-size:12px;color:var(--mut);margin:6px 0 0}
+.sect{font-size:14px;font-weight:600;margin:2px 0 10px}
+.empty{color:var(--mut);font-size:13px;padding:20px;text-align:center}
+.spin{display:inline-block;width:13px;height:13px;border:2px solid var(--accbd);
+  border-top-color:var(--acc);border-radius:50%;animation:sp .7s linear infinite;
+  vertical-align:-2px;margin-right:6px}
+@keyframes sp{to{transform:rotate(360deg)}}
+kbd{background:#E6E4DC;border-radius:4px;padding:1px 6px;font-size:12px}
+.stat{display:flex;gap:16px;flex-wrap:wrap;font-size:12px;color:var(--mut);margin-top:8px}
+.stat b{color:var(--fg)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>裸K盘感 · 相似 K 线联想</h1>
+  <div class="sub">给一段 K 线，列出历史上最像的几十段。
+    <b>⚡ 看此刻</b> = 直接拉交易所在跑的行情；也可以指定历史时间。
+    库内数据：9 年 · 122 个币 · 116 万个窗口（已洗净币池，覆盖到 2026-08-31）</div>
+
+  <div class="warn">
+    <b>先说清楚它不干什么：</b>这些相似段<b>之后会涨还是会跌，实测是测不出来的</b>
+    （8 种形态定义里 <b>7 种还不如"随便挑一段"</b>）。
+    所以别把它当买卖信号 —— 它的用处是<b>让你更快看到该看的东西</b>，以及<b>更守纪律</b>。
+  </div>
+
+  <div class="card">
+    <div class="row">
+      <label>币种</label>
+      <select id="sym"></select>
+      <button id="live" title="去交易所拉此刻最近 100 根已收盘的 15 分钟 K 线">⚡ 看此刻</button>
+      <label>或指定历史时间(UTC)</label>
+      <input id="time" type="text" placeholder="2025-03-01 12:00">
+      <button class="ghost" id="go">查这一段</button>
+      <button class="ghost" id="lg">库内最近一段</button>
+      <button class="ghost" id="rg">随机逛一段</button>
+    </div>
+    <div class="row">
+      <label>找几个</label>
+      <select id="topk">
+        <option>12</option><option>24</option><option>36</option><option>48</option>
+      </select>
+      <label>依据</label>
+      <select id="variant">
+        <option value="shape">只看形状（尺度无关，默认）</option>
+        <option value="raw">带涨跌背景</option>
+      </select>
+      <label class="chk"><input type="checkbox" id="contemp"> 允许"同期其他币"</label>
+      <label class="chk"><input type="checkbox" id="after"> 显示之后 24 小时</label>
+      <label class="chk"><input type="checkbox" id="ov"> 叠图模式</label>
+    </div>
+    <div class="stat" id="stat"></div>
+  </div>
+
+  <div class="card">
+    <div class="row">
+      <label>📷 查截图</label>
+      <input type="file" id="shotfile" accept="image/png,image/jpeg">
+      <button class="ghost" id="shotgo" disabled>📷 查这段截图</button>
+    </div>
+    <div class="row" id="shotcal" style="display:none">
+      <div class="shotbox" id="shotwrap">
+        <img id="shotprev" alt="截图预览">
+        <svg id="shotrect"></svg>
+      </div>
+      <div>
+        <div class="hintline">在预览图上<b>先点 K 线绘图区的左上角，再点右下角</b>
+          （只框蜡烛区：<b>不含量柱、不含时间轴</b>）。价格上限/下限 = 框住区域顶部/底部对齐的价格刻度。</div>
+        <div class="row" style="margin-top:8px">
+          <label>首根开盘时间(UTC)</label>
+          <input type="text" id="shott0" placeholder="2025-03-01 12:00" style="min-width:160px">
+          <label>周期</label>
+          <select id="shotint"><option>15m</option></select>
+          <label>价格轴上限</label>
+          <input type="text" id="shottop" placeholder="如 98500">
+          <label>价格轴下限</label>
+          <input type="text" id="shotbot" placeholder="如 96000">
+          <label class="chk"><input type="checkbox" id="shotlog"> 对数轴</label>
+        </div>
+        <div class="hintline">⚠️ 截图读不出量能 → 检索<b>只比形态</b>（量能通道不参与）；
+          识别误差<b>还没用真实截图量化过</b>（合成图回环 ≈1 像素/根），先当"看个大概"用。</div>
+      </div>
+    </div>
+  </div>
+
+  <div id="host"></div>
+</div>
+
+<script>
+const $ = s => document.querySelector(s);
+let COINS = [], LAST = null;
+
+const pad2 = n => String(n).padStart(2, '0');
+function fmt(ms){
+  const d = new Date(ms);
+  return `${d.getUTCFullYear()}-${pad2(d.getUTCMonth()+1)}-${pad2(d.getUTCDate())} ${pad2(d.getUTCHours())}:${pad2(d.getUTCMinutes())}`;
+}
+
+/* ---------------- K 线绘制（主图 / 小图共用） ---------------- */
+function drawChart(host, bars, w, h, after){
+  const p = 4, gap = 6;
+  const all = (after && after.length) ? bars.concat(after) : bars;
+  const vh = h * 0.72, volTop = vh + gap, volH = h - volTop - 2;
+  const hi = Math.max(...all.map(b => b[1])), lo = Math.min(...all.map(b => b[2]));
+  const span = (hi - lo) || 1, n = all.length, nq = bars.length;
+  const bw = Math.max(1, (w - 2 * p) / n * 0.62);
+  const x = i => p + (i + 0.5) * (w - 2 * p) / n;
+  const y = v => p + (hi - v) / span * (vh - 2 * p);
+  const vmax = Math.max(...all.map(b => b[4])) || 1;
+
+  let s = `<svg viewBox="0 0 ${w} ${h}" preserveAspectRatio="none" style="width:100%;height:${h}px;display:block">`;
+  if (after && after.length){
+    const xa = p + nq * (w - 2 * p) / n;
+    s += `<rect x="${xa.toFixed(1)}" y="0" width="${(w - xa).toFixed(1)}" height="${h}" fill="#F1EFE8"/>`;
+    s += `<line x1="${xa.toFixed(1)}" y1="0" x2="${xa.toFixed(1)}" y2="${h}" stroke="#B4B2A9" stroke-dasharray="3 3"/>`;
+  }
+  s += `<rect x="0" y="${(volTop - 1).toFixed(1)}" width="${w}" height="1" fill="#D3D1C7"/>`;
+  all.forEach((b, i) => {
+    const [o, hh, ll, c, v] = b;
+    const col = c >= o ? '#D4534E' : '#1D9E75';
+    const cx = x(i).toFixed(1);
+    s += `<line x1="${cx}" y1="${y(hh).toFixed(1)}" x2="${cx}" y2="${y(ll).toFixed(1)}" stroke="${col}" stroke-width="1"/>`;
+    const y1 = y(Math.max(o, c)), y2 = y(Math.min(o, c));
+    s += `<rect x="${(x(i) - bw / 2).toFixed(1)}" y="${y1.toFixed(1)}" width="${bw.toFixed(1)}" height="${Math.max(1, y2 - y1).toFixed(1)}" fill="${col}"/>`;
+    const vh2 = Math.max(0.5, v / vmax * (volH - 2));
+    s += `<rect x="${(x(i) - bw / 2).toFixed(1)}" y="${(volTop + volH - vh2).toFixed(1)}" width="${bw.toFixed(1)}" height="${vh2.toFixed(1)}" fill="${col}" opacity="0.5"/>`;
+  });
+  host.innerHTML = s + '</svg>';
+}
+
+/* ---------------- 归一化曲线（与建库同口径：log 价 → 去线性趋势 → 除波动） ---------------- */
+function normCurve(bars){
+  const n = bars.length;
+  const y = bars.map(b => Math.log(b[3]));
+  const mx = (n - 1) / 2, my = y.reduce((a, b) => a + b, 0) / n;
+  let num = 0, den = 0;
+  for (let i = 0; i < n; i++){ num += (i - mx) * (y[i] - my); den += (i - mx) ** 2; }
+  const sl = den ? num / den : 0, ic = my - sl * mx;
+  const r = y.map((v, i) => v - (sl * i + ic));
+  const sd = Math.sqrt(r.reduce((a, b) => a + b * b, 0) / n) || 1e-9;
+  return r.map(v => v / sd);
+}
+
+const CLIP = 3;
+function drawOverlay(host, items, w, h){
+  const p = 8;
+  const X = i => p + i * (w - 2 * p) / 99;
+  const Y = v => h / 2 - Math.max(-CLIP, Math.min(CLIP, v)) / CLIP * (h / 2 - p);
+  let s = `<svg viewBox="0 0 ${w} ${h}" preserveAspectRatio="none" style="width:100%;height:${h}px;display:block">`;
+  [[0,'#B4B2A9','1'],[1,'#E6E4DC','1'],[-1,'#E6E4DC','1'],[2,'#EDEBE4','1'],[-2,'#EDEBE4','1']]
+    .forEach(([v,col,sw]) => {
+      s += `<line x1="0" y1="${Y(v).toFixed(1)}" x2="${w}" y2="${Y(v).toFixed(1)}" stroke="${col}" stroke-width="${sw}" ${sw==='1'&&v!==0?'stroke-dasharray="3 4"':''}/>`;
+    });
+  items.forEach((it, k) => {
+    const c = normCurve(it.bars);
+    const d = c.map((v, i) => `${i ? 'L' : 'M'}${X(i).toFixed(1)},${Y(v).toFixed(1)}`).join(' ');
+    const col = it.main ? '#2C2C2A' : `hsl(${(k * 47) % 360} 55% 52%)`;
+    s += `<path d="${d}" fill="none" stroke="${col}" stroke-width="${it.main ? 2.2 : 1.1}" opacity="${it.main ? 1 : 0.65}"/>`;
+  });
+  host.innerHTML = s + '</svg>';
+}
+
+/* ---------------- 请求 ---------------- */
+async function q(params){
+  const r = await fetch('/api/search?' + new URLSearchParams(params));
+  const j = await r.json();
+  if (j.error){ alert('出错了：' + j.error); return null; }
+  return j;
+}
+
+function statBar(j){
+  const q = j.query;
+  let h = '';
+  if (j.live){
+    h += `<span style="color:#185FA5">⚡ 实时 · ${j.live.source.replace('https://','')}</span>`
+       + `<span>最后一根已收盘 <b>${fmt(j.live.last_closed)}</b>（距今 ${Math.max(1, Math.round(j.live.lag_s / 60))} 分钟）</span>`
+       + (j.live.cached ? `<span class="tag">复用 15 秒内缓存</span>` : '');
+  }
+  if (j.shot){
+    h += `<span style="color:#185FA5">📷 来自截图</span>`
+       + `<span>识别 <b>${j.shot.n_bars}</b> 根 ${j.shot.interval}（首根 ${fmt(j.shot.first_bar)}）</span>`
+       + `<span>标定价格 ${j.shot.p_bottom} ~ ${j.shot.p_top}${j.shot.log_scale ? ' · 对数轴' : ''}</span>`;
+  }
+  h += `<span>库内窗口 <b>${j.n_windows.toLocaleString()}</b></span>`
+     + `<span>${j.live ? '当前' : '查询'}片段 <b>${q.sym} · ${fmt(q.t0)}</b></span>`
+     + `<span>该段波幅 <b>${q.amp}%</b></span>`
+     + `<span>召回 <b>${j.results.length}</b> 段（从 ${j.pool_k} 个候选里挑）</span>`
+     + `<span>标尺：<b>${j.dist_random.toFixed(1)}</b> = 随便挑两段的距离（结果远小于它才算真的像）</span>`
+     + (j.note ? `<span style="color:#B4820B">${j.note}</span>` : '');
+  $('#stat').innerHTML = h;
+}
+
+/* ---------------- 渲染 ---------------- */
+function render(j){
+  LAST = j;
+  statBar(j);
+  const q = j.query, after = $('#after').checked, live = !!j.live;
+  let h = '';
+  h += `<div class="card">
+    <div class="qhead">
+      <span class="qtag">${live ? '⚡ 此刻 · 刚从交易所拉来的 100 根' : j.shot ? '📷 从截图反解出来的 100 根' : '当前片段 · 要匹配的就是它'}</span>
+      <span class="tag">${q.sym} ｜ ${fmt(q.t0)} ~ ${fmt(q.t1)} ｜ 100 根 15 分钟（约 25 小时）｜ 波幅 ${q.amp}%</span>
+    </div>
+    <div id="qchart"></div>
+    ${after && q.fwd_ret != null ? `<div class="legend">虚线右边 = 之后 24 小时（涨跌 ${(q.fwd_ret*100).toFixed(2)}%）</div>` : ''}
+    ${live ? `<div class="legend">这是<b>交易所此刻</b>的行情 —— <b>它自己没有"之后"</b>（还没发生）。
+      想知道"像它的历史片段后来怎么走"，看下面的结果卡（那些是库内窗口，后续完整）。</div>` : ''}
+  </div>`;
+
+  if (after){
+    const fr = j.results.map(r => r.fwd_ret).filter(v => v != null);
+    if (fr.length){
+      const up = fr.filter(v => v > 0).length;
+      h += `<div class="card"><div class="sect">这些相似段之后 24 小时怎么样了</div>
+        <div class="legend">上涨 <b>${up}</b> / ${fr.length} 段 ｜ 中位涨跌 <b>${(fr.slice().sort((a,b)=>a-b)[Math.floor(fr.length/2)]*100).toFixed(2)}%</b>
+        ｜ 最好 ${(Math.max(...fr)*100).toFixed(1)}% ｜ 最差 ${(Math.min(...fr)*100).toFixed(1)}%
+        <span style="color:#B4820B">— 这个分布<b>没有预测力</b>，别拿来当依据</span></div></div>`;
+    }
+  }
+
+  if ($('#ov').checked){
+    const items = [{bars: q.bars, main: true}].concat(
+      j.results.slice(0, 12).map(r => ({bars: r.bars, main: false})));
+    h += `<div class="card">
+      <div class="qhead"><span class="qtag">叠图 · 全部按同一尺度归一化后叠在一起</span>
+        <span class="tag">黑线 = 当前片段，彩线 = 最像的 12 段</span></div>
+      <div id="ovchart"></div>
+      <div class="legend">横轴 ±1/±2 格 = 上下一个/两个"典型波动"。<b>看线聚不聚拢</b> —— 聚拢说明它们真的是一类形态。</div>
+    </div>`;
+  }
+
+  h += `<div class="card"><div class="sect">历史上最像的 ${j.results.length} 段 <span class="tag">（点任意一张 = 以它为新起点继续联想）</span></div>
+    <div class="grid" id="grid">${
+      j.results.map((r, k) => {
+        const ds = Math.sqrt(r.dist);
+        const like = Math.max(0, Math.min(1, 1 - ds / j.dist_random));
+        return `<div class="cand" data-i="${r.idx}">
+          <div class="lab">#${k + 1}${k === 0 ? ' · 最像' : ''} ${r.sym}</div>
+          <div class="meta"><span>${fmt(r.t0)}</span><span class="d">距离 ${ds.toFixed(1)}</span></div>
+          <div class="bar"><i style="width:${(like * 100).toFixed(0)}%"></i></div>
+          <div id="c${k}"></div>
+        </div>`;
+      }).join('')
+    }</div></div>`;
+
+  $('#host').innerHTML = h;
+  drawChart($('#qchart'), q.bars, 1180, 240, after ? q.after : null);
+  j.results.forEach((r, k) => drawChart($('#c' + k), r.bars, 300, 150, null));
+  if ($('#ov').checked){
+    drawOverlay($('#ovchart'), [{bars: q.bars, main: true}].concat(
+      j.results.slice(0, 12).map(r => ({bars: r.bars, main: false}))), 1180, 300);
+  }
+  document.querySelectorAll('.cand').forEach(el => {
+    el.onclick = () => { window.scrollTo({top: 0, behavior: 'smooth'});
+      run({idx: el.dataset.i}); };
+  });
+}
+
+/* ---------------- 动作 ---------------- */
+function params(extra){
+  return Object.assign({
+    topk: $('#topk').value, variant: $('#variant').value,
+    contemp: $('#contemp').checked ? 1 : 0,
+    after: $('#after').checked ? 1 : 0
+  }, extra || {});
+}
+
+async function run(extra){
+  $('#host').innerHTML = `<div class="card empty"><span class="spin"></span>检索中…</div>`;
+  const j = await q(params(extra));
+  if (j) render(j); else $('#host').innerHTML = '';
+}
+
+/* ⚡ 实时：去交易所拉此刻最近 100 根已收盘的 K 线，再走**同一套**检索 */
+let LIVE_BUSY = false;
+async function runLive(){
+  if (LIVE_BUSY) return;                    // 防连点
+  LIVE_BUSY = true;
+  const symbol = $('#sym').value;
+  $('#host').innerHTML = `<div class="card empty"><span class="spin"></span>正在拉 ${symbol} 此刻的 K 线…</div>`;
+  try {
+    const r = await fetch('/api/live?' + new URLSearchParams(params({symbol})));
+    const j = await r.json();
+    if (j.error){
+      alert('实时拉取失败：' + j.error + (j.hint ? '\n\n' + j.hint : ''));
+      $('#host').innerHTML = '';
+      return;
+    }
+    render(j);
+  } catch (e){
+    alert('实时拉取出错：' + e.message + '\n\n（网络不通时请改用「库内最近一段」或指定历史时间）');
+    $('#host').innerHTML = '';
+  } finally {
+    LIVE_BUSY = false;
+  }
+}
+
+/* 开关变了就按"上次是怎么查的"重查 —— 实时/截图查询不能退回 idx（它们不在索引里） */
+function requery(){
+  if (!LAST) return;
+  if (LAST.live) runLive();
+  else if (LAST.shot) runShot(true);
+  else run({idx: LAST.query.idx});
+}
+
+/* ---------------- 📷 截图查询 ---------------- */
+let SHOT_IMG = null, SHOT_P1 = null, SHOT_BOX = null, SHOT_LAST = null, SHOT_BUSY = false;
+
+function shotRect(){
+  const svg = $('#shotrect');
+  if (!SHOT_BOX){ svg.innerHTML = ''; return; }
+  const [x1, y1, x2, y2] = SHOT_BOX;
+  const img = $('#shotprev');
+  const kx = img.clientWidth / img.naturalWidth, ky = img.clientHeight / img.naturalHeight;
+  svg.innerHTML = `<rect x="${x1*kx}" y="${y1*ky}" width="${(x2-x1)*kx}" height="${(y2-y1)*ky}"
+    fill="rgba(24,95,165,.12)" stroke="#185FA5" stroke-width="2" stroke-dasharray="5 3"/>`;
+}
+
+async function runShot(silent){
+  if (SHOT_BUSY) return;
+  if (!SHOT_IMG || !SHOT_BOX){ alert('先选截图，并在预览上点出框选区域'); return; }
+  const t0 = $('#shott0').value.trim();
+  const pTop = parseFloat($('#shottop').value), pBot = parseFloat($('#shotbot').value);
+  if (!/^\d{4}-\d{2}-\d{2} \d{2}:\d{2}$/.test(t0)){ alert('首根开盘时间格式：2025-03-01 12:00（UTC）'); return; }
+  if (!isFinite(pTop) || !isFinite(pBot) || pTop <= pBot){ alert('价格轴上限/下限要填数字，且上限 > 下限'); return; }
+  SHOT_BUSY = true;
+  const req = {img_b64: SHOT_IMG, box: SHOT_BOX, t0, interval: $('#shotint').value,
+    p_top: pTop, p_bottom: pBot, log_scale: $('#shotlog').checked,
+    variant: $('#variant').value, topk: $('#topk').value,
+    contemp: $('#contemp').checked, after: $('#after').checked};
+  SHOT_LAST = req;
+  if (!silent) $('#host').innerHTML = `<div class="card empty"><span class="spin"></span>识别截图并检索中…</div>`;
+  try {
+    const r = await fetch('/api/shot', {method:'POST',
+      headers:{'Content-Type':'application/json'}, body: JSON.stringify(req)});
+    const j = await r.json();
+    if (j.error){ alert('截图查询失败：' + j.error); if (!silent) $('#host').innerHTML = ''; return; }
+    render(j);
+  } catch (e){
+    alert('截图查询出错：' + e.message);
+  } finally {
+    SHOT_BUSY = false;
+  }
+}
+
+$('#shotfile').onchange = e => {
+  const f = e.target.files[0];
+  if (!f) return;
+  const rd = new FileReader();
+  rd.onload = () => {
+    SHOT_IMG = String(rd.result);          // dataURL，服务端自己剥前缀
+    SHOT_P1 = null; SHOT_BOX = null; shotRect();
+    $('#shotprev').src = SHOT_IMG;
+    $('#shotcal').style.display = 'flex';
+    $('#shotgo').disabled = false;
+  };
+  rd.readAsDataURL(f);
+};
+$('#shotwrap').onclick = e => {
+  if (!SHOT_IMG) return;
+  const img = $('#shotprev');
+  const r = img.getBoundingClientRect();
+  const x = Math.round((e.clientX - r.left) * img.naturalWidth / r.width);
+  const y = Math.round((e.clientY - r.top) * img.naturalHeight / r.height);
+  if (!SHOT_P1 || SHOT_BOX){
+    SHOT_P1 = [x, y]; SHOT_BOX = null;
+  } else {
+    SHOT_BOX = [Math.min(SHOT_P1[0], x), Math.min(SHOT_P1[1], y),
+                Math.max(SHOT_P1[0], x), Math.max(SHOT_P1[1], y)];
+  }
+  shotRect();
+};
+$('#shotgo').onclick = () => runShot(false);
+
+$('#go').onclick = () => {
+  const s = $('#sym').value, t = $('#time').value.trim();
+  if (!t){ run({latest: s}); return; }
+  run({symbol: s, time: t});
+};
+$('#live').onclick = runLive;
+$('#lg').onclick = () => run({latest: $('#sym').value});
+$('#rg').onclick = () => run({random: 1});
+$('#after').onchange = requery;
+$('#ov').onchange = requery;
+$('#variant').onchange = requery;
+$('#topk').onchange = requery;
+
+/* ---------------- 启动 ---------------- */
+(async function(){
+  const info = await (await fetch('/api/info')).json();
+  document.title += ` · ${info.n_windows.toLocaleString()} 窗口`;
+  const coins = (await (await fetch('/api/coins')).json()).coins;
+  COINS = coins;
+  $('#sym').innerHTML = coins.map(c => `<option${c === 'BTCUSDT' ? ' selected' : ''}>${c}</option>`).join('');
+  $('#time').value = '';
+  const t = new Date(info.t_max);
+  $('#time').placeholder = fmt(info.t_max) + '（库里最后一段）';
+  run({latest: 'BTCUSDT'});
+})();
+</script>
+</body>
+</html>

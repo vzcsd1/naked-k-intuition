@@ -1,0 +1,17 @@
+{
+ "exported": "selftest",
+ "answers": {
+  "1": {
+   "pick": "A",
+   "reason": "selftest 样例"
+  },
+  "2": {
+   "pick": "A",
+   "reason": "selftest 样例"
+  },
+  "3": {
+   "pick": "A",
+   "reason": "selftest 样例"
+  }
+ }
+}
