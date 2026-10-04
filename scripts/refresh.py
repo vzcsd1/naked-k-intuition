@@ -297,8 +297,11 @@ def cmd_fetch(args):
         sym, day = t
         p = DAYS_DIR / sym
         out = p / f"{sym}-1m-{day}.parquet"
-        if out.exists() and not args.force:
+        if out.exists() and out.stat().st_size > 0 and not args.force:
             return "skip", sym, day
+        if out.exists() and out.stat().st_size == 0:
+            zero[0] += 1        # ⭐ 0 字节 = 上次失败留下的空壳，不算"已有"，重下并覆盖
+            #（不 unlink —— 沙箱内删不掉文件；to_parquet 会直接覆盖写）
         url = f"{CDN}/data/spot/daily/klines/{sym}/1m/{sym}-1m-{day}.zip"
         try:
             r = SESSION.get(url, timeout=90)
@@ -315,6 +318,7 @@ def cmd_fetch(args):
 
     t0 = time.time()
     cnt = {"ok": 0, "skip": 0, "miss": 0, "fail": 0}
+    zero = [0]
     bad, missing = [], []
     with ThreadPoolExecutor(max_workers=args.workers) as ex:
         for st, sym, day in ex.map(one, todo):
@@ -327,6 +331,8 @@ def cmd_fetch(args):
                 say(f"    进度 {sum(cnt.values()):,}/{len(todo):,}  用时 {time.time()-t0:.0f}s")
     say(f"[fetch] 完成：新下载 {cnt['ok']} · 已有跳过 {cnt['skip']} · "
         f"归档不存在 {cnt['miss']} · 失败 {cnt['fail']}  用时 {time.time()-t0:.0f}s")
+    if zero[0]:
+        say(f"       ⚠️ 发现并重下 0 字节坏文件 {zero[0]} 个（上次失败残留，refresh.md §15.5）")
     if bad:
         say(f"       失败样例 {bad[:5]}")
     if missing:
@@ -712,7 +718,27 @@ def cmd_verify(args):
 
 # ================================================================ stage: all
 
+def _snapshot_stale() -> bool:
+    """快照缺失，或快照比当前索引旧（上次建库之后没再拍过）→ 视为过期。"""
+    if not SNAP_VEC.exists():
+        return True
+    meta_p = IDX_DIR / "meta.parquet"
+    if not meta_p.exists():
+        return True
+    return SNAP_VEC.stat().st_mtime < meta_p.stat().st_mtime
+
+
 def cmd_all(args):
+    # ⭐（refresh.md §8① 收尾，2026-10-04）快照自动管理：
+    #   「老数据零改动」的证据需要一个**当次**的基准。没有快照、或快照落后于当前索引
+    #   （上一轮 --stage all 建完库之后没再拍过）→ 先自动补拍，再进流水线。
+    #   手动先跑了 --stage snapshot 的（快照比索引新）不会被重复拍。
+    if _snapshot_stale():
+        say("[all] 快照缺失或落后于当前索引 → 自动补拍老窗口指纹（基准 = 当前库）")
+        rc = cmd_snapshot(args)
+        if rc:
+            say("✗ 自动补拍快照失败，停止（没有基准就不许动库）")
+            return rc
     for fn in (cmd_fetch, cmd_merge, cmd_derive, cmd_liquidity, cmd_index, cmd_verify):
         say("")
         rc = fn(args)

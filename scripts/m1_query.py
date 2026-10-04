@@ -162,7 +162,10 @@ def draw_vol(ax, df, width=0.6):
     col = np.where(c >= o, UP, DOWN)
     ax.bar(x, df["volume"].to_numpy(float), width=width, color=col, alpha=0.55, linewidth=0)
     ax.set_yscale("log")
-    ax.set_yticks([])
+    ax.tick_params(labelleft=False, left=False)
+    ax.yaxis.set_major_formatter(matplotlib.ticker.NullFormatter())
+    ax.yaxis.set_minor_formatter(matplotlib.ticker.NullFormatter())
+    ax.set_ylabel("vol", fontsize=7)
 
 
 def norm_path(df_close, atr):
@@ -218,17 +221,20 @@ def main():
                                    .to_dict("list")))
 
     # ---- 渲染 ----
-    fig = plt.figure(figsize=(13, 9))
-    gs = fig.add_gridspec(2, 1, height_ratios=[3, 2], hspace=0.25)
+    fig = plt.figure(figsize=(13, 10.5))
+    gs = fig.add_gridspec(3, 1, height_ratios=[2.4, 0.7, 2.2],
+                          hspace=0.16, left=0.07, right=0.98, top=0.94, bottom=0.07)
     ax1 = fig.add_subplot(gs[0])
-    ax1v = ax1.inset_axes([0, -0.18, 1, 0.15])
+    ax1v = fig.add_subplot(gs[1], sharex=ax1)
     draw_candles(ax1, qdf)
     draw_vol(ax1v, qdf)
+    ax1.tick_params(labelbottom=False)
+    ax1v.tick_params(labelbottom=False)
     ax1.set_title(f"QUERY  {sym}  {pd.to_datetime(qdf['open_time'].iloc[0], unit='ms', utc=True):%Y-%m-%d %H:%M} -> "
                   f"{pd.to_datetime(qdf['open_time'].iloc[-1], unit='ms', utc=True):%H:%M} UTC  (15m x {L.W})",
                   fontsize=10)
     ax1.grid(alpha=0.2)
-    ax2 = fig.add_subplot(gs[1])
+    ax2 = fig.add_subplot(gs[2])
     cmap = plt.get_cmap("viridis")
     for m in matches:
         wclose = pd.Series(m["window"]["close"])
